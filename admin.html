@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1fZM17gx-wo7PQIxHGe6kM4Wv1f2a-5sGhcnjGTCf5Bk/edit#gid=0'; 
+            // $('#tab').sheetrock({
+            //     url: mySpreadsheet
+            // });
+            $.ajax({
+                    type: "GET",
+                    url: "https://script.google.com/macros/s/AKfycbyUoQZmZoDfTcy1A46rH6k368SAHN1d7RbMuC2rmFs2MJOsp6YX6GgRRs8dCkGDaTVt/exec",
+                    data: "task=addNewInfo&" + $('#regForm').serialize(),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "html",
+                    success: function (data, status) {
+                        alert(data);
+                        alert(data.ip);
+                    },
+                    error: function (xqhr, error, exception) {
+                        alert("error");
+                    }
+                });
+            $('tab tr td').each(function () {
+
+                                 
+                });
+                });
+
+    </script>
+    <table id="tab" style="display: none;"></table>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>admin </h1>
+    <button id="submit-form">click</button>
+    <script>
+
+$("#submit-form").click((e)=>{
+    $.ajax({
+    type: "GET",
+    url:'https://script.google.com/macros/s/AKfycbyUoQZmZoDfTcy1A46rH6k368SAHN1d7RbMuC2rmFs2MJOsp6YX6GgRRs8dCkGDaTVt/exec',
+    success: function( response) {
+        console.log(response)
+    }
+});
+            
+        })
+
+        
+    </script>
+</body>
+</html>
